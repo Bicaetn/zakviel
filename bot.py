@@ -32,4 +32,6 @@ async def handle_msg(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 def run_bot():
     app_bot = ApplicationBuilder().token(BOT_TOKEN).build()
-    app_bot.add_handler(Comman
+    app_bot.add_handler(CommandHandler("start", start))
+    app_bot.add_handler(MessageHandler(filters.TEXT, handle_msg))
+    app_bot.run_polling()
